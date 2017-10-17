@@ -30,7 +30,7 @@ SECRET_KEY = '06+^6yz%p08b#!jf&$6efj6&#koh6kx3o#!=+4=((2e(-!wmz%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'thawing-dawn-95442.herokuapp.com']
+ALLOWED_HOSTS = [u'evening-brook-28948.herokuapp.com']
 
 
 # Application definition
