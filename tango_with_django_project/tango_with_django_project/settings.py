@@ -30,7 +30,7 @@ SECRET_KEY = '06+^6yz%p08b#!jf&$6efj6&#koh6kx3o#!=+4=((2e(-!wmz%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [u'thawing-dawn-95442.herokuapp.com']
 
 
 # Application definition
@@ -80,11 +80,9 @@ WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-
-
-DATABASES = {
-}
 import dj_database_url
+
+DATABASES = {}
 DATABASES['default'] = dj_database_url.config()
 #DATABASES['default']='postgres://alumnodb:alumnodb@localhost:5432/psi'
 
@@ -124,6 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [STATIC_DIR, ]
