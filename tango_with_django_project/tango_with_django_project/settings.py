@@ -30,7 +30,7 @@ SECRET_KEY = '06+^6yz%p08b#!jf&$6efj6&#koh6kx3o#!=+4=((2e(-!wmz%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'evening-brook-28948.herokuapp.com']
+ALLOWED_HOSTS = [u'127.0.0.1', u'https://evening-brook-28948.herokuapp.com/']
 
 
 # Application definition
@@ -80,11 +80,15 @@ WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-import dj_database_url
-
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config()
-#DATABASES['default']='postgres://alumnodb:alumnodb@localhost:5432/psi'
+DATABASES={}
+if os.getenv('SQLITE',False):
+	DATABASES['default'] = {
+	'ENGINE': 'django.db.backends.sqlite3',
+	'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	}
+else:
+	import dj_database_url
+	DATABASES['default']= dj_database_url.config(default='postgres://alumnodb:alumnodb@localhost:5432/psi')
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
